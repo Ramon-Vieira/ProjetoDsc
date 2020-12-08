@@ -27,6 +27,27 @@ footer {
   padding: 1em;
 }
 
+#formulario,
+#dashboardPanel {
+  background-color: white;
+  padding: 1em;
+  margin-top: 2em;
+  max-width: 900px;
+  text-align: left;
+}
+
+#problema {
+  height: 200px;
+}
+
+@media only screen and (max-device-width: 640px) {
+  #dashboardPanel,
+  #loginPanel {
+    width: 90% !important;
+  }
+}
+
+
 @media only screen and (max-device-width: 640px) {
   footer {
     position: relative !important;
