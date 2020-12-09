@@ -2,34 +2,31 @@
     <div class="container-fluid rounded" id="formulario">
         <form action="addChamado" method="POST">
             <div class="row">
-            <div class="form-group col-sm">
-                <label for="nome">Nome</label>
-                <input readonly type="text" class="form-control" name="nome" value="IAGO DE ARAÚJO GALVÃO">
-            </div>
-<div class="form-group col-sm">
-                <label for="nome">Cargo</label>
-                <input readonly type="text" class="form-control" name="nome" value="Professor">
-            </div>
+                <div class="form-group col-sm">
+                    <label for="nome">Nome</label>
+                    <input readonly type="text" class="form-control" name="nome" id="nome"
+                        value="IAGO DE ARAÚJO GALVÃO">
+                </div>
+                <div class="form-group col-sm">
+                    <label for="cargo">Cargo</label>
+                    <input readonly type="text" class="form-control" name="cargo" id="cargo" value="Professor">
+                </div>
             </div>
             <div class="form-group">
-                <label for="cpf">Sala</label>
+                <label for="salas">Sala</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-door-closed"></i></div>
                     </div>
-                    <select class="form-control" id="salas">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" name="salas" id="salas">
+                        {{#each salas}}<option>{{nome}}</option>{{/each}}
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="email">Problema:</label>
+                <label for="problema">Problema:</label>
                 <div class="input-group">
-                    <textarea class="form-control" id="problema" name="email"></textarea>
+                    <textarea required class="form-control" id="problema" name="problema"></textarea>
                 </div>
             </div>
             <div class="col text-center">

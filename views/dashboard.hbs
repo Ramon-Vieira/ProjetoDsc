@@ -1,11 +1,14 @@
 <div class="container rounded" id="dashboardPanel">
     <h3 class="text-center">Bem-vindo!</h3>
     <div class="container row text-center mt-4 mb-4">
-        <div class="col-sm p-1"><a href="criarChamado"><button type="button" class="btn btn-dark btn-lg">Inserir
+        <div class="col-sm pr-1 pl-1"><a href="criarChamado"><button type="button" class="btn btn-dark btn-lg">Inserir
                     Chamado</button></a>
         </div>
-        <div class="col-sm p1"><a href="cadastro"><button type="button" class="btn btn-dark btn-lg">Cadastrar
+        <div class="col-sm pr-1 pl-1"><a href="criarCadastro"><button type="button" class="btn btn-dark btn-lg">Cadastrar
                     Funcionário</button></a>
+        </div>
+        <div class="col-sm pr-1 pl-1"><a href="criarSalas"><button type="button" class="btn btn-dark btn-lg">Cadastrar
+                    Sala</button></a>
         </div>
     </div>
 
@@ -20,36 +23,13 @@
                     <th scope="col">Status</th>
                 </tr>
             </thead>
-            <tbody <tr>
-                <th scope="row">1</th>
-                <td>Iago</td>
-                <td>Sem mouse.</td>
-                <td>Pendente.</td>
-                </tr>
+            <tbody>{{#each chamados}}
                 <tr>
-                    <th scope="row">2</th>
-                    <td>Iago</td>
-                    <td>PC não liga.</td>
-                    <td>Solucionado.</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Iago</td>
-                    <td>PC não liga.</td>
-                    <td>Solucionado.</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Iago</td>
-                    <td>PC não liga.</td>
-                    <td>Solucionado.</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Iago</td>
-                    <td>PC não liga.</td>
-                    <td>Solucionado.</td>
-                </tr>
+                <th scope="row">{{id}}</th>
+                <td>{{nome}}</td>
+                <td>{{problema}}</td>
+                <td>Pendente</td>
+                </tr> {{/each}}
             </tbody>
         </table>
     </div>
