@@ -4,7 +4,7 @@ const db = require("../models/tables");
 
 router.get("/", (req, res, next) => {
   db.salas.findAll({ order: ["nome"] }).then((salas) => {
-    res.render("criarChamado", { salas: salas });
+    res.render("criarChamado", { salas: salas, nome: req.session.nome, cargo: req.session.cargo});
   });
 });
 

@@ -9,6 +9,7 @@ router.post("/", (req, res, next) => {
       cpf: req.body.cpf,
       cargo: req.body.cargo,
       email: req.body.email,
+      admin: req.body.admin,
     })
     .then(function () {
       req.flash("msgSuccess", "Cadastro inserido com sucesso.");

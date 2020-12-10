@@ -40,13 +40,17 @@
 <body>
     {{!-- BARRA FIXA DO TOPO --}}
     <div class="row" id="topBar">
-        <div class="col-sm"></div>
-        <div class="col">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
             <a id="homeTop" href="dashboard">
                 Sistema de Chamados
             </a>
         </div>
-        <div class="col-sm text-right">{{#if nome}} <span>{{nome}}</span> {{/if}}</div>
+        <div class="col-sm-2 text-right" style="font-size: 15px">{{#if nome}}<a id="homeTop" href="logout"><button
+                type="button" class="btn btn-warning" id="logout"><i class="fas fa-sign-out-alt"></i></button></a>
+            {{/if}}
+        </div>
+
     </div>
     {{{body}}}
     {{!-- RECEBE OS CONTEUDOS DAS PAGINAS DO HANDLEBARS,

@@ -15,6 +15,9 @@ const dashboardRouter = require("./routes/dashboard");
 const addSalasRouter = require("./routes/addSalas");
 const addChamadoRouter = require("./routes/addChamado");
 const addCadastroRouter = require("./routes/addCadastro");
+const delSalasRouter = require("./routes/delSalas");
+
+const logoutRouter = require("./routes/logout");
 
 // Config Handlebars
 app.set("views", __dirname + "/views");
@@ -70,6 +73,8 @@ app.use("/dashboard", verifyLogin,dashboardRouter);
 app.use("/addSalas", addSalasRouter);
 app.use("/addChamado", addChamadoRouter);
 app.use("/addCadastro", addCadastroRouter);
+app.use("/logout", logoutRouter);
+app.use("/delSalas", delSalasRouter);
 
 app.listen(3000);
 

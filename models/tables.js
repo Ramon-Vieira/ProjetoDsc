@@ -21,6 +21,10 @@ const usuarios = conn.define("usuarios", {
   email: {
     type: Sequelize.STRING,
   },
+  admin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
 });
 
 const chamados = conn.define("chamados", {
@@ -54,6 +58,18 @@ const salas = conn.define("salas", {
     type: Sequelize.STRING,
   },
 });
+
+// usuarios.create({
+//   nome: "Admin",
+//   cpf: "o1o",
+//   cargo: "-",
+//   email: "o1o",
+//   admin: true,
+// });
+
+// chamados.sync({ force: true });
+// usuarios.sync({ force: true });
+// salas.sync({ force: true });
 
 module.exports = {
   usuarios: usuarios,

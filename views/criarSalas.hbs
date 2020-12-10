@@ -21,6 +21,7 @@
 
 <div class="container text-center">
     <div class="container-fluid rounded" id="formulario">
+        <h4>Inserir:</h4>
         <form action="addSalas" method="POST">
             <div class="form-group">
                 <label for="nome">Nome da Sala</label>
@@ -28,6 +29,18 @@
             </div>
             <div class="col text-center">
                 <button type="submit" class="btn btn-dark">Inserir</button>
+            </div>
+        </form>
+        <h4>Remover:</h4>
+        <form action="delSalas" method="POST">
+            <div class="form-group">
+                <label for="delSalas">Nome da Sala</label>
+                <select class="form-control" id="delSalas" name="delSalas">
+                    {{#each salas}}<option value="{{nome}}">{{nome}}</option>{{/each}}
+                </select>
+            </div>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-danger">Remover</button>
             </div>
         </form>
     </div>

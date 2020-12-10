@@ -70,6 +70,12 @@ footer {
   text-decoration: none !important;
 }
 
+#logout {
+  position: fixed;
+  right: 10px;
+  top: 8px;
+}
+
 @media only screen and (max-device-width: 640px) {
   footer {
     position: relative !important;
@@ -82,4 +88,9 @@ footer {
   .btn {
     margin-top: 5px !important;
   }
+
+  #logout {
+    top: 5px;
+  }
+
 }

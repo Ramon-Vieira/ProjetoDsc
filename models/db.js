@@ -8,10 +8,6 @@ conn.authenticate().catch(function (err) {
   console.log("Erro ao conectar ao BD.");
 });
 
-// chamados.sync({ force: true });
-// usuarios.sync({ force: true });
-// salas.sync({ force: true });
-
 module.exports = {
   conn: conn,
   Sequelize: Sequelize,

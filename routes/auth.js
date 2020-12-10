@@ -9,6 +9,7 @@ router.post("/", (req, res, next) => {
       if (x.cpf == req.body.cpf) {
         req.session.nome = x.nome;
         req.session.cargo = x.cargo;
+        req.session.admin = x.admin;
         res.redirect("dashboard");
       } else {
         req.flash("msgError", "Email e/ou CPF incorretos.");

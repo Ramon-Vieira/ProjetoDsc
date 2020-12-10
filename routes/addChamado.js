@@ -15,7 +15,7 @@ router.post("/", (req, res, next) => {
       res.redirect("/criarChamado");
     })
     .catch(function () {
-      req.flash('msgError', 'Erro ao inserir o chamado!')
+      req.flash("msgError", "Erro ao inserir o chamado!");
       res.redirect("/criarChamado");
     });
 });
