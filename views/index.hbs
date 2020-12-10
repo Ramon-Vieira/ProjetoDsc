@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center">
+  {{#if msgError}}
+  <div class="alert alert-danger alert-dismissible fade show mb-4 mt-4" role="alert">
+    {{msgError}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">x</span>
+    </button>
+  </div>
+  {{/if}}
+</div>
+<div class="container-fluid rounded" id="loginPanel">
+  <div class="text-center" style="font-size: 90px">
+    <i class="fas fa-users"></i>
+  </div>
+
+  <form action="auth" method="POST">
+    {{!-- <form action="dashboard"> --}}
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+        </div>
+        <input required type="text" class="form-control" name="email" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fas fa-key"></i></div>
+        </div>
+        <input required type="password" class="form-control" name="cpf" />
+      </div>
+    </div>
+    <p style="text-align: center;">Usar Email e CPF</p>
+    <div class="form-group">
+      <input type="submit" class="btn btn-warning btn-block btn-lg" value="Login" />
+    </div>
+  </form>
+</div>

@@ -2,9 +2,21 @@ const express = require("express");
 const app = express();
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const flash = require("connect-flash");
+
+const auth = require("./routes/auth")
+const indexRouter = require("./routes/index");
+const criarCadastroRouter = require("./routes/criarCadastro");
+const criarChamadoRouter = require("./routes/criarChamado");
+const criarSalasRouter = require("./routes/criarSalas");
+const dashboardRouter = require("./routes/dashboard");
+
+const addSalasRouter = require("./routes/addSalas");
+const addChamadoRouter = require("./routes/addChamado");
+const addCadastroRouter = require("./routes/addCadastro");
 
 // Config Handlebars
-
 app.set("views", __dirname + "/views");
 app.engine(
   "hbs",
@@ -19,86 +31,51 @@ app.engine(
 );
 app.set("view engine", "hbs");
 
-// Config bodyParser
+// Config Sessão
+app.use(
+  session({
+    secret: "F0rCh4n.102",
+    resave: true,
+    saveUninitialized: true,
+    expires: new Date(Date.now() + (20 * 60 * 1000)),
+  })
+);
+app.use(flash());
 
+// Definindo minhas variaveis de mensagens globais
+app.use((req, res, next) => {
+  res.locals.msgSuccess = req.flash("msgSuccess");
+  res.locals.msgError = req.flash("msgError");
+  next();
+});
+
+// Config bodyParser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+ 
 // Definindo diretorio publico
-
 app.use(express.static(__dirname + "/public"));
 
 // Rotas
 
-app.get("/", function (req, res) {
-  res.render("login");
-});
+// Front
+app.use("/", indexRouter);
+app.use("/auth",auth);
+app.use("/criarCadastro", verifyLogin,criarCadastroRouter);
+app.use("/criarChamado", verifyLogin,criarChamadoRouter);
+app.use("/criarSalas", verifyLogin,criarSalasRouter);
+app.use("/dashboard", verifyLogin,dashboardRouter);
 
-app.get("/dashboard", function (req, res) {
-  chamados.findAll().then(function (chamados) {
-    res.render("dashboard", { chamados: chamados });
-  });
-});
-
-app.get("/criarCadastro", function (req, res) {
-  res.render("criarCadastro");
-});
-
-app.get("/criarsalas", function (req, res) {
-  res.render("criarSalas");
-});
-
-app.get("/criarChamado", function (req, res) {
-  salas.findAll().then(function (salas) {
-    res.render("criarChamado", { salas: salas });
-  });
-});
-
-const db = require("./models/db");
-const { salas, chamados } = require("./models/db");
-
-app.post("/addChamado", function (req, res) {
-  db.chamados
-    .create({
-      nome: req.body.nome,
-      salas: req.body.salas,
-      problema: req.body.problema,
-      idUser: req.body.idUser,
-    })
-    .then(function () {
-      res.redirect("/criarChamado");
-    })
-    .catch(function () {
-      res.redirect("/criarChamado");
-    });
-});
-
-app.post("/addSalas", function (req, res) {
-  db.salas
-    .create({
-      nome: req.body.nome,
-    })
-    .then(function () {
-      res.redirect("/criarSalas");
-    })
-    .catch(function () {
-      res.redirect("/criarSalas");
-    });
-});
-
-app.post("/addCadastro", function (req, res) {
-  db.usuarios
-    .create({
-      nome: req.body.nome,
-      cpf: req.body.cpf,
-      cargo: req.body.cargo,
-    })
-    .then(function () {
-      res.redirect("/criarCadastro");
-    })
-    .catch(function (err) {
-      res.redirect("/criarCadastro");
-    });
-});
+// Back
+app.use("/addSalas", addSalasRouter);
+app.use("/addChamado", addChamadoRouter);
+app.use("/addCadastro", addCadastroRouter);
 
 app.listen(3000);
+
+function verifyLogin(req, res, next) {
+  if (!req.session.nome) {
+    return res.redirect("/");
+  }
+  return next();
+}
