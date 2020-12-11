@@ -5,18 +5,19 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-const auth = require("./routes/auth")
+// Rotas Front
 const indexRouter = require("./routes/index");
 const criarCadastroRouter = require("./routes/criarCadastro");
 const criarChamadoRouter = require("./routes/criarChamado");
 const criarSalasRouter = require("./routes/criarSalas");
 const dashboardRouter = require("./routes/dashboard");
 
+// Rotas Back
+const auth = require("./routes/auth")
 const addSalasRouter = require("./routes/addSalas");
 const addChamadoRouter = require("./routes/addChamado");
 const addCadastroRouter = require("./routes/addCadastro");
 const delSalasRouter = require("./routes/delSalas");
-
 const logoutRouter = require("./routes/logout");
 
 // Config Handlebars
