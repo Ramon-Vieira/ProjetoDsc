@@ -12,7 +12,7 @@ router.post("/", (req, res, next) => {
     })
     .then(function () {
       req.flash("msgSuccess", "Chamado inserido com sucesso.");
-      res.redirect("/criarChamado");
+      res.redirect("/dashboard");
     })
     .catch(function () {
       req.flash("msgError", "Erro ao inserir o chamado!");

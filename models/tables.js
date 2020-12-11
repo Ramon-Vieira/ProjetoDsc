@@ -59,14 +59,6 @@ const salas = conn.define("salas", {
   },
 });
 
-// usuarios.create({
-//   nome: "Admin",
-//   cpf: "o1o",
-//   cargo: "-",
-//   email: "o1o",
-//   admin: true,
-// });
-
 // chamados.sync({ force: true });
 // usuarios.sync({ force: true });
 // salas.sync({ force: true });

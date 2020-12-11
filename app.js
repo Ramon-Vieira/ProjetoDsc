@@ -18,7 +18,6 @@ const addSalasRouter = require("./routes/addSalas");
 const addChamadoRouter = require("./routes/addChamado");
 const addCadastroRouter = require("./routes/addCadastro");
 const delSalasRouter = require("./routes/delSalas");
-
 const logoutRouter = require("./routes/logout");
 
 // Config Handlebars

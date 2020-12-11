@@ -2,7 +2,8 @@
 
     {{#if msgSuccess}}
 
-    <div class="alert alert-success alert-dismissible fade show mb-0 mt-4" role="alert" style="width: fit-content;">
+    <div class="alert alert-success alert-dismissible fade show mb-0 mt-4" role="alert"
+        style="width: fit-content; position: absolute">
         {{msgSuccess}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">x</span>
@@ -10,7 +11,8 @@
     </div>
     {{/if}}
     {{#if msgError}}
-    <div class="alert alert-danger alert-dismissible fade show mb-4 mt-4" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show mb-4 mt-4" style="width: fit-content; position: absolute"
+        role="alert">
         {{msgError}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">x</span>
