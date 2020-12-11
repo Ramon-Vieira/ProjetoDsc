@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  res.render("criarCadastro", { nome: req.session.nome });
+  res.render("criarCadastro", { sessao: req.session });
 });
 
 module.exports = router;

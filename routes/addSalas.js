@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../models/tables");
 
 router.post("/", (req, res, next) => {
+  // Insere os valores do formulario(criarSalas) no banco de dados.
   db.salas
     .create({
       nome: req.body.nome,
@@ -12,7 +13,7 @@ router.post("/", (req, res, next) => {
       res.redirect("/criarSalas");
     })
     .catch(function () {
-      req.flash('msgError', 'Erro ao inserir a sala!')
+      req.flash("msgError", "Erro ao inserir a sala!");
       res.redirect("/criarSalas");
     });
 });

@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../models/tables");
 
 router.post("/", (req, res, next) => {
+  // Insere os valores do formulario(criarChamado) no banco de dados.
   db.chamados
     .create({
       nome: req.body.nome,

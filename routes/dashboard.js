@@ -9,16 +9,18 @@ router.get("/", (req, res, next) => {
         chamados: chamados,
         admin: req.session.admin,
         nome: req.session.nome,
+        sessao: req.session,
       });
     });
   } else {
     db.chamados
-      .findAll({ order: ["id"], where: { nome: req.session.nome } })
+      .findAll({ order: ["id"], where: { idUser: req.session.idUser } })
       .then((chamados) => {
         res.render("dashboard", {
           chamados: chamados,
           admin: req.session.admin,
           nome: req.session.nome,
+          sessao: req.session,
         });
       });
   }

@@ -10,6 +10,7 @@ router.post("/", (req, res, next) => {
         req.session.nome = x.nome;
         req.session.cargo = x.cargo;
         req.session.admin = x.admin;
+        req.session.idUser = x.id;
         res.redirect("dashboard");
       } else {
         req.flash("msgError", "Email e/ou CPF incorretos.");
@@ -21,6 +22,7 @@ router.post("/", (req, res, next) => {
         req.session.nome = "Admin";
         req.session.cargo = "-";
         req.session.admin = true;
+        req.session.idUser = 999
         res.redirect("dashboard");
       } else {
         req.flash("msgError", "Email e/ou CPF incorretos.");

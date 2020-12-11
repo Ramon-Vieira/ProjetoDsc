@@ -46,6 +46,10 @@ const chamados = conn.define("chamados", {
     type: Sequelize.STRING,
     defaultValue: "Pendente",
   },
+  idUser: {
+    type: Sequelize.INTEGER,
+    notNull: true,
+  },
 });
 
 const salas = conn.define("salas", {
@@ -58,6 +62,8 @@ const salas = conn.define("salas", {
     type: Sequelize.STRING,
   },
 });
+
+// Fazer a sincronização das tabelas antes de iniciar o projeto, depois é preciso comentar o código abaixo:
 
 // chamados.sync({ force: true });
 // usuarios.sync({ force: true });

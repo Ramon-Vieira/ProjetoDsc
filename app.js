@@ -80,8 +80,8 @@ app.use("/delSalas", delSalasRouter);
 app.listen(3000);
 
 function verifyLogin(req, res, next) {
-  if (!req.session.nome) {
+  if (!req.session.idUser) {
     return res.redirect("/");
   }
   return next();
-}
+} 
