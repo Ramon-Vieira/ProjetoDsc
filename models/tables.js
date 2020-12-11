@@ -12,6 +12,9 @@ const usuarios = conn.define("usuarios", {
   nome: {
     type: Sequelize.STRING,
   },
+  senha: {
+    type: Sequelize.STRING,
+  },
   cargo: {
     type: Sequelize.STRING,
   },
